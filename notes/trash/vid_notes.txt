@@ -1,0 +1,92 @@
+Additional resources - 
+https://emulator101.com
+
+
+This is a project that i have been looking forward to for a long time. Im sure this will take me shit ton of time to get working but ill do it... ill do it... Im thinking to make this my personal first year project.
+
+
+The 8080 emulator, and then make a game working on it.
+Its an awesome way to learn more about the CPU, get more experience with Low level programming, and perhaps, cmake. Which really really makes me sick. Not because its bad, i cant judge that yet. Its because its just annoying to learn.
+
+
+
+Memory in 8080 - 
+the word size in 8080 is 8 bits, or a byte.
+
+Every 8 bits get an address.
+
+16 bits to represent an address.(There is a 16 bit register for addressing the bytes.)
+The lowest possible address in hex is 0x0000
+The highest possible address in hex is 0xFFFF (or 655636 digits from 0 to 65535)
+
+
+This memory is divided into various sections -
+1) ROM - The program(or the game) is supposed to be stored. It is read only, it is not supposed to be changed.
+In typical hardware, this ROM is a game cartridge. Yk those cases which you just fit into the system and BAM a game runs?
+This is the first 8 kilobytes.
+
+Starting address - 0
+Ending address is 8191 (in decimal) or 0x1FFF (in hex)
+
+
+2) RAM - 
+to store the state of the program.
+Lives, sprite coordinates etc.
+It consists of a section called ram, where values are stored when the CPU needs to stop what its doing to process other instructions before returning to the operation it was doing previously.
+
+starting address - 0x2000 (or 8192 in decimal)
+ending address - 0x23FF (or 9215 in decimal)
+
+3) VRAM - 
+display information
+each bit in this space represents a pixel on the space, but rotated 90 degrees clockwise
+
+4) unused - 
+16 bit addressing.
+which would mean there are 16 traces(wires) running to the memory circuit.
+(ram mirror)
+
+
+
+
+
+calculations - 
+intermediate space between storage and processing - cpu registers.
+within the cpu, they are used for calculations.
+
+8080 - 
+there are 7 8-bit registers, and 2 16-bit registers.
+
+
+The 8 bit registers are 
+A, B, C, D, E, H, L
+
+the 16 bit registers are
+SP and PC
+
+There is also an F register for flags.
+
+A - accumulator
+most operations affect A register.
+
+B, C, D and E typically store data to be operated on.
+
+B-C
+D-E
+H-L 
+are register pairs that can be treated as a 15 bit register.
+
+H and L register pair is used in instructions that store and load from memory.
+store the low and high bytes of an address memory.
+
+SP - stack pointer
+references the current memory address that is at the top of the stack.
+
+
+PC - 
+The program counter.
+keeps track of the current operation the computer is on.
+
+
+instructions - 
+

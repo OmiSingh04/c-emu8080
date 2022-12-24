@@ -1,0 +1,210 @@
+8080 Datasheet. Yep... ill go through it now.
+Chapter 1 - 
+Basic computer concepts (Nice!)
+
+A typical digital computer consists of ->
+CPU
+Memory
+I/O ports
+
+
+The memory is a place to store instructions, pieces of information that direct the activities of the CPU.
+It also stores instructions.
+pieces of information processed by the CPU.
+
+a group of logically related instructions in memory is a program.
+
+CPU 'reads' each instruction from memory in a logically determined sequence.
+
+The program must be organized so that the CPU does not read a non instruction word when it expects one.
+
+With input and output ports, data is simply given or taken after processing.
+
+CPU must be able to -
+fetch instructions from memory
+decode their binary contents //not convert them to binary, they are already in binary
+execute them
+
+it must be able to reference memory and i/o ports.
+
+it should be able to recognize and respond to certain external control signals, such as interrupt and wait.
+
+
+
+Architecture of a CPU ->
+Registers
+ALU
+Control Circuitry (CU)
+
+Some registers such as program counter and instruction register have dedicated uses.
+There are also general purpose registers.
+
+Accumulator - 
+stores one of the operands to be manupulated by the ALU.
+a typical instruction might direct the ALU to add the contents of some other register to accumulator and store the result in accumulator itself.
+
+Generally, it is both the operand and the result. (an instruction typically stores the result in accumulator itself)
+
+
+CPU often includes more general purpose registers.
+
+
+
+PROGRAM COUNTER!!!!
+instructions are stored in memory.
+cpu refers this memory to determine the next action.
+Hence, we need a way to differ different memory locations.
+This is called addressing.
+Every memory location gets an address (a number)
+
+
+
+
+The processor maintains a counter to get the next instruction.
+This is the Program Counter register. (lets call it PC)
+After fetching the instruction, the processor updates the PC by adding 1, to keep the PC pointing to the next instruction.
+
+
+
+Therefore, the programmer will store the instructions in numerically adjacent addresses.
+The only time this sequential rule is broken is when the JUMP instruction is called.
+This jumps to another section in memory.
+
+(i can imagine it changes the PC to some other value rather than incrementing it.)
+
+
+a special kind of jump is a call to a subroutine.
+In this kind of jump, the processor needs to remember the current content of the program counter, when this particular jump was enountered. (to return to it)
+
+
+A subroutine is a program within a program.
+They are general purpose instructions which may be required to run multiple times in the program.
+
+Examples - 
+routines to calculate square-root, sine, and log.
+
+
+The processor has a special way to handle subroutines.
+When the processor receives the call instruction, it increments the program counter and stores the counter's contents in a reserved memory known as stack.
+
+The stack, therefore, stores the address of the instruction to return to, after the subroutine is completed. (Functions in C become a subroutine in its asm, and they follow this rule too) 
+
+
+When the subroutine finishes, the last instruction is the Return.
+This instruction need specify no address.
+When this instruction is encountered, the current contents of the program counter is replaces with the address on the top of the stack, or the current value of the stack pointer.
+
+
+Subroutines are often nested.
+
+
+Each operation that the processor can perform is identified by a unique code, or byte, known as operation code or opcode.
+
+8 bit words used for operation codes gives you 256 valid operations to encode.
+
+Processor fetches instruction in two distinct operations. 
+1) The processor transmits the address in the program counter to the memory.
+2) The memory returns the addressed byte and stores it in Instruction Register.
+
+
+
+The eight bits stored int eh instruction register can be decoded and used to selectively activate one of a number of output lines, upto 256 lines.
+
+
+
+An eight bit instruction code is often sufficient to specify a particular processing action. There ar etimes however, when execution requires more information than eight bits can convey.
+
+example - an instruction to reference a memory location.
+
+The basic instruction code identifies the operation to be performed, but cannot specify the object address as well. In this case a two or three byte instruction must be used. The first byte retrieved from memory is placed in teh processor's instruction register, and the subsequent bytes are placed in temporary storage.
+
+
+
+Address Register - 
+a cpu may use a register or a register pair to hold the address of a memory location that is to be accessed for data.
+if the address register is *Programmble* (meaning that there are instructions that allow the programmer to alter the constents of the register), 
+the program can build an address in the register, prior to memory reference isntruction (an instruction which can read, write or operate on data stored in memory)
+
+
+
+ALU - 
+it is that portion of the CPU hardware which performs the arithmetic and logical operations in binary data.
+It must contain an adder, which is capable of combining the contents of two registers in accordance with the logic of binary arithmetic.
+
+using only the adder, a capable programmer can write routines to perform all arithmetic operations, giving the the machine complete arithmetic capabilites.
+in practice, most ALU's provide other built-in functions for subtraction, logic operations and shift capabilities.
+
+
+the ALU contains flag bits, which specify conditions that arise in the course of arithmetic and logical manipulations.
+
+
+these flags include CARRY, zero, sign and parity.
+
+it is possible to program jumps which are conditionally dependent on the status of one or more flags.
+
+thus, the program may be designed to jump to a special routine if the carry bit is set following an addition instruction
+
+
+
+Control Circuitry - 
+after the instruction is fetched and decoded, the control circuitry issues the appropriate signals for initiating the proper processing action.
+
+Often, teh control circuitry will be capable of responding to external signals, such as interrupts and waits.
+
+An interrupt request will cause the control circuitry to temporarily interrupt main program execution, jump to a special routine to service the interrupting device.
+
+A wait request is often issued by a memory or IO element operating slower than CPU.
+The control circuitry will idle the cpu until the mrmoy or port is ready with data.
+
+
+
+
+Computer operations!
+The activities of a processor are cyclical.
+Fetch -> Decode -> Execute -> Back to fetch.
+
+
+
+This orderly sequence of events requires precise timing, and the cpu therefore requires a free running oscillator clock, which furnishes the reference of all processor actions.
+
+
+the intervals between the oscillations is a Clock Period.
+1 time period of frequency of microprocessor is the t state
+
+
+-> Cycle -> several states
+-> State -> one or more clock periods
+
+
+
+Instruction cycle ->
+	Machine cycles ->
+		T-states
+
+
+
+in every instruction, opcode fetch is the first machine cycle
+time in microprocessors is measured in clock pulses
+
+the first state of any instruction is dedicated to fetching the instruction
+
+
+
+cpu issues a read signal ->
+	to send the content of the program counter to memory, and it returns the next instruction word.
+	first byte is placed in the instruction register. 
+	if the instruction consists of more than 1 byte, additional states are required to fetch each byte of the instruction
+	then the program counter is incremented, and the instruction is decoded.
+	the operation specified in the instruction will be executed in the remaining states of the instruction cycle
+	
+
+
+
+combine the registers - 
+program counter has the memory address for the next instruction.
+this is passed to memory. memory returns the content of the memory address, in this case, the instruction opcode.
+this opcode is now stored in the instruction register.
+
+
+
+
