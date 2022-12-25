@@ -1,0 +1,174 @@
+{
+  "main": {
+    "id": "6be206636df03541",
+    "type": "split",
+    "children": [
+      {
+        "id": "65d6baeed5b541b8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7e785cfa26fbce46",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "8080 - The Beginning.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b5288f0a6f9d86f5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Chapter - 1/The Computer System.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "cb8e1eec19010265",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Chapter - 1/The Architecture of a CPU.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b5b5528ee8e45369",
+    "type": "split",
+    "children": [
+      {
+        "id": "10a924f5c885497a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5ba817f7ba86e64d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "byCreatedTimeReverse"
+              }
+            }
+          },
+          {
+            "id": "4757648f47b1628d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "97ecfc278923e60f",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "right": {
+    "id": "dbd479303db335f6",
+    "type": "split",
+    "children": [
+      {
+        "id": "423d1cd88826c1ac",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b952fd1484bca245",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Chapter - 1/The Architecture of a CPU.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "7043ba95be5e66bc",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Chapter - 1/The Architecture of a CPU.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "86c1acfe81e95786",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "066a9586b0bc0949",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Chapter - 1/The Architecture of a CPU.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "ribbon": {
+    "mostRecentAction": ""
+  },
+  "active": "cb8e1eec19010265",
+  "lastOpenFiles": [
+    "Chapter - 1/The Computer System.md",
+    "Chapter - 1/The Architecture of a CPU.md",
+    "8080 - The Beginning.md"
+  ]
+}
