@@ -31,3 +31,5 @@ The CPU must be able to reference the memort and IO ports as necessary.
 ```
 The CPU must be able to recognize and respond to certain external control signals, such as INTERRUPT and WAIT.
 ```
+
+[[The Architecture of a CPU]]

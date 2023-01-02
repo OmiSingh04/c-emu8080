@@ -15,7 +15,6 @@ A typical instruction might direct the ALU to add the contents of some other reg
 
 The accumulator is usually the operand and the destination itself.
 
-
 <h3>Program Counter</h3>
 Each location in memory is numbered. The number which identifies a memory location is an **Address**.
 
@@ -61,3 +60,21 @@ When the processor receives a call instruction, it increments the Program Counte
 ```
 
 The stack saves the address of the next instruction to be executed, when the last instruction of a subroutine is executed.
+The processor then loads the address in the program counter, which is the address of the first instruction in the subroutine.
+
+
+```
+The last instruction in any subroutine is the return instruction.
+```
+
+When a return instruction is fetched, the processor simply replaces the contents of the program counter with the address at the top of the stack.
+
+
+Subroutines are often nested. 
+The status of the processor - the contents of all the registers.
+
+```
+During interrupts, the status of the processor can be saved in the stack, and can be restored after the interrupt has been serviced.
+```
+
+[[Instruction, Register and Decoder]]
