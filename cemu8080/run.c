@@ -1,7 +1,8 @@
-#include<stdio.h>
-#include "state_8080.h"
+#include "memory.h"
 int main(){
-	init_memory();
-	printf("Hello World!\n");
+	int status = init_memory();
+	if(status == -1)
+		return -1;
+	get_byte(0);
 	free_memory();
 }
