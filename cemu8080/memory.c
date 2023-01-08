@@ -5,7 +5,7 @@
 #include "memory.h"
 
 
-//i think these three functions will do for now, although im expecting more functions to fill in later
+//i think these four functions will do for now, although im expecting more functions to fill in later
 
 int init_memory(){
 	memory.memory = malloc(sizeof(char) * 65536);
@@ -30,5 +30,4 @@ char get_byte(uint16_t address){
 void set_byte(char byte, uint16_t address){
 	memory.memory[address] = byte;
 }
-
 
