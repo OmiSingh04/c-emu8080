@@ -1,9 +1,8 @@
 #include "memory.h"
+#include "cpu_8080.h"
 
 
-
-void init_cpu_state(cpu_8080* cpu){
-
+void init_cpu_state(){
 	//i can do this after i get a good idea about the memory structure
 
 }
@@ -25,16 +24,16 @@ char fetch(){
 	
 	//the first byte i get out of the pc is going to be the instruction opcode.
 
-	char instruction = memory.memory[state_8080.pc];
+	char instruction = memory.memory[cpu_8080.pc];
 	int length = get_args_length(instruction);
 
-	state_8080.pc++;
+	cpu_8080.pc++;
 	char args[length];
 	//the successive args are stored in this array, 
 	//im expecting it to be quite small, 1 digit
 	for(int i = 0; i < length; i++){
-		args[i] = memory.memory[state_8080.pc];
-		state_8080.pc++;
+		args[i] = memory.memory[cpu_8080.pc];
+		cpu_8080.pc++;
 	}
 
 	//pc is already incremented to the next instruction

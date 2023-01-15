@@ -1,3 +1,6 @@
+
+#include<stdio.h>
+#include "cpu_8080.h"
 #include "memory.h"
 #include "asm_parse.h"
 int main(){
@@ -8,7 +11,7 @@ int main(){
 	}
 	get_byte(0);
 	free_memory();
-
+	printf("%ld", sizeof(condition_bits));
 	
 
 }

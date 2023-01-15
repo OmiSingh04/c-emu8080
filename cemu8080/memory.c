@@ -30,4 +30,3 @@ char get_byte(uint16_t address){
 void set_byte(char byte, uint16_t address){
 	memory.memory[address] = byte;
 }
-

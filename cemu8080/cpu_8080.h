@@ -2,7 +2,7 @@
 #define CPU_8080_H_
 #include<stdlib.h>
 #include<stdint.h>
-typedef struct cpu_8080{
+struct{
 
 	uint16_t pc;//Program Counter
 	uint16_t sp;//Stack Pointer
@@ -15,7 +15,21 @@ typedef struct cpu_8080{
 
 } cpu_8080;
 
-void init_cpu_state(cpu_8080* cpu);
+struct{
+
+	unsigned int carry_bit:1;
+	unsigned int auxiliary_carry_bit:1;
+	unsigned int sign_bit:1;
+	unsigned int zero_bit:1;
+	unsigned int parity_bit:1;
+
+	//5 condition bits
+
+} condition_bits;
+
+void init_cpu_state();
+
+
 char fetch();
 
 /*
@@ -28,7 +42,7 @@ Used char since each fetch simply fetches a byte.
 */
 
 
-void decode();
+int decode();
 
 /*
 

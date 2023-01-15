@@ -17,6 +17,14 @@ char* parse_asm(char* asm_file_path){//
 
 	char* asm_str = malloc(size * sizeof(char));
 
+
+	//still need to initialize the string...
+
+
+	//which is a different kind of headache and not something im ready to tackle right now!	
+
+
+
 	return asm_str;
 }
 
