@@ -9,7 +9,7 @@ int main(){
 	*y = 0x1A;
 	y++;
 	*y = 0xB3;
-	printf("%d", *x);
+	printf("%x", *x);
 
 	//this is exactly what endianness is about!!!
 	//the output which i expected is 1AB3, which assumes the CPU to be Big Endian
